@@ -47,9 +47,9 @@ class ToDoModel:
     # Create a todo, with text title and task description
     def create(self, text, description):
         # inserting user-entered 'title, descr' into table using SQL - will switch to ORMs later on (to prevent SQL injection, observe how this changes)
-        query = f'insert into {TABLENAME}'\
+        query = f'insert into {TABLENAME}' \
                 f'(Title, Description)' \
-                f'values ("{text}", "{description")'
+                f'values ("{text}", "{description}")'
 
         result = self.conn.execute(query)
         return result
