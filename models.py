@@ -70,3 +70,12 @@ class ToDoModel:
         query = f'delete from {TABLENAME}' \
                 f'where (Title) = {text}'
         
+    def update(self, option, todo_title, val_to_update):
+        # text will contain the value to update and option will contain what the user wants to update in the todo
+        # option & val_to_update can be extended in future to allow multiple value updates simultaneously
+        query = f'update {TABLENAME}' \
+                f'set {option} = {val_to_update}'\
+                f'where (Title) = {todo_title}' # Update a specific todo by its name
+
+        result = self.conn.execute(query)
+        return result           
