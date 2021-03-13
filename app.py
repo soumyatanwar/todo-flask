@@ -14,9 +14,9 @@ def create_todo():
     ToDoService().create(request.get_json())
     return ''
 
-@app.route("/todo", methods=["GET"])
-def select_todo():
-    return jsonify(ToDoService().select(request.get_json))
+@app.route("/todo/<title>", methods=["GET"])
+def select_todo(title):
+    return jsonify(ToDoService().select(title))
 
 if __name__=='__main__': # whenever app.py is run, the flask app would be run
     Schema()
