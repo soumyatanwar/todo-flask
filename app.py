@@ -1,5 +1,5 @@
 from flask import Flask # importing flask
-from flask import request
+from flask import request, jsonify
 from models import Schema
 from services import ToDoService
 app = Flask(__name__) # Create an app instance
@@ -13,6 +13,10 @@ def hello(): # call function hello
 def create_todo():
     ToDoService().create(request.get_json())
     return ''
+
+@app.route("/todo", methods=["GET"])
+def select_todo():
+    return jsonify(ToDoService().select(request.get_json))
 
 if __name__=='__main__': # whenever app.py is run, the flask app would be run
     Schema()
