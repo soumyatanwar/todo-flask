@@ -11,7 +11,8 @@ def hello(): # call function hello
 # Adding todo invocation route via POST request
 @app.route("/todo", methods=["POST"])
 def create_todo():
-    return ToDoService().create(request.get_json())
+    ToDoService().create(request.get_json())
+    return ''
 
 if __name__=='__main__': # whenever app.py is run, the flask app would be run
     Schema()
