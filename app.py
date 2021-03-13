@@ -7,10 +7,6 @@ app = Flask(__name__) # Create an app instance
 def hello(): # call function hello
     return "Hello world" # which returns Hello world
 
-@app.route("/<name>")
-def hello_with_name(name):
-    return "Hello, "+name
-
 # Adding todo invocation route via POST request
 @app.route("/todo", methods=["POST"])
 def create_todo():
